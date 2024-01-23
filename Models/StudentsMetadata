@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.MVC;
 
 namespace SchoolManagmentApp.MVC.Data;
-
-public partial class Student
+public class StudentMetadata
 {
-    public int Id { get; set; }
-
     [Display(Name = "First Name")]
     public string FirstName { get; set; } = null!;
 
@@ -16,4 +12,9 @@ public partial class Student
 
     [Display(Name = "Date Of Birth")]
     public DateTime? DateOfBirth { get; set; }
+}
+[ModelMetadataType(typeof(StudentMetadata))]
+public partial class Student
+{
+
 }
