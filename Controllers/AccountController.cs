@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using SchoolManagmentApp.MVC.Models;
 
 namespace SchoolManagmentApp.MVC.Controllers;
 public class AccountController : Controller
@@ -23,7 +24,7 @@ public class AccountController : Controller
     [Authorize]
     public IActionResult Profile()
     {
-        return View(new
+        return View(new UserProfileViewModel
         {
             Name = User.Identity.Name,
             EmailAddress = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value,
